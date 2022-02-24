@@ -1,0 +1,287 @@
+[
+    {
+       "id": "1",
+       "question": "Choose why mental health is important.",
+       "options": [
+          {
+             "id": "1",
+             "option": "Because it makes it difficult for a person to take their own decisions",
+             "isCorrect": false
+          },
+          {
+             "id": "2",
+             "option": "Because it determines how we handle our professional life",
+             "isCorrect": false
+          },
+          {
+             "id": "3",
+             "option": "Because when handled properly, it offers a feeling of well-being and inner strength",
+             "isCorrect": true
+          },
+          {
+             "id": "4",
+             "option": "Because it causes us to misbehave more often",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "3",
+      "level": "beginner"
+    },
+    {
+       "id": "2",
+       "question": "Why is a mentally ill person suggested to have a routine?",
+       "options": [
+          {
+             "id": "1",
+             "option": "Because routines create negative levels of stress",
+             "isCorrect": false
+          },
+          {
+             "id": "2",
+             "option":"Because it sets the stage for serious, rejuvenating self-care",
+             "isCorrect": true
+          },
+          {
+             "id": "3",
+             "option": "Because it decreases focus and boosts our mental health",
+             "isCorrect": false
+          },
+          {
+             "id": "4",
+             "option": "Because it increases the symptoms of bipolar affective disorder",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "2",
+       "level": "beginner"
+    },
+    {
+       "id": "3",
+       "question": "What is meant by a panic attack in simple terms?",
+       "options": [
+          {
+             "id": "1",
+             "option": "A sudden loss of blood supply to part of the heart muscles",
+             "isCorrect": false
+          },
+          {
+             "id": "2",
+             "option": "A sudden attack of intense fear",
+             "isCorrect": true
+          },
+          {
+             "id": "3",
+             "option": "When blood flow to an area in the brain is cut off",
+             "isCorrect": false
+          },
+          {
+             "id": "4",
+             "option": "When a person becomes paralysed in sleep",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "2",
+       "level": "beginner"
+    },
+    {
+       "id": "4",
+       "question": "Which of the following groups of people most likely are sufferers of Mental retardation?",
+       "options": [
+          {
+             "id": "1",
+             "option": "People with hyperactive behaviour",
+             "isCorrect": false
+          },
+          {
+             "id": "2",
+             "option": "People with constant fidgeting behaviour",
+             "isCorrect": false
+          },
+          {
+             "id": "3",
+             "option": "People with below-average intelligence",
+             "isCorrect": true
+          },
+          {
+             "id": "4",
+             "option": "People with a neurodevelopmental disorder",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "3",
+       "level": "beginner"
+    },
+ 
+    {
+       "id": "5",
+       "question": "What is meant by a panic attack in simple terms?",
+       "options": [
+          {
+             "id": "1",
+             "option":
+                "A sudden loss of blood supply to part of the heart muscles",
+                "isCorrect": false
+          },
+          {
+             "id": "2",
+             "option": "A sudden attack of intense fear",
+             "isCorrect": true
+          },
+          {
+             "id": "3",
+             "option": "When blood flow to an area in the brain is cut off",
+             "isCorrect": false
+          },
+          {
+             "id": "4",
+             "option": "When a person becomes paralysed in sleep",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "2",
+       "level": "beginner"
+    },
+ 
+    {
+       "id": "6",
+       "question": "Which of the following is a cause of PTSD?",
+       "options": [
+          {
+             "id": "1",
+             "option": "Combat exposure",
+             "isCorrect": true
+          },
+          {
+             "id": "2",
+             "option": "Genetics",
+             "isCorrect": false
+          },
+          {
+             "id": "3",
+             "option": "Pregnancy complications",
+             "isCorrect": false
+          },
+          {
+             "id": "4",
+             "option": "Brain changes",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "1",
+       "level": "intermediate"
+    },
+    {
+       "id": "7",
+       "question": "What is the similarity between PTSD and schizophrenia?",
+       "options": [
+          {
+             "id": "1",
+             "option": "Hallucinations",
+             "isCorrect": true
+          },
+          {
+             "id": "2",
+             "option": "Tightness in chest",
+             "isCorrect": false
+          },
+          {
+             "id": "3",
+             "option": "Persistent wheezing",
+             "isCorrect": false
+          },
+          {
+             "id": "4",
+             "option": "Reduced ability to exercise",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "1",
+       "level": "intermediate"
+    },
+ 
+    {
+       "id": "8",
+       "question": "Dissociative disorder makes a person do which of the following?",
+       "options": [
+          {
+             "id": "1",
+             "option": "Have recurrent thoughts about death",
+             "isCorrect": false
+          },
+          {
+             "id": "2",
+             "option": "Disconnect themselves from their sense of identity",
+             "isCorrect": true
+          },
+          {
+             "id": "3",
+             "option": "Think that other people are constantly judging them",
+             "isCorrect": false
+          },
+          {
+             "id": "4",
+             "option": "Binge eat lots of unhealthy food to escape from reality",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "2",
+       "level": "intermediate"
+    },
+ 
+    {
+       "id": "9",
+       "question": "Which of the following terms is used to describe a situation where the patient is a threat to himself or others?",
+       "options": [
+          {
+             "id": "1",
+             "option": "Emergency evacuation",
+             "isCorrect": false
+          },
+          {
+             "id": "2",
+             "option": "Emergency detainment",
+             "isCorrect": true
+          },
+          {
+             "id": "3",
+             "option": "Emergency escalation",
+             "isCorrect": false
+          },
+          {
+             "id": "4",
+             "option": "Emergency detection",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "2",
+       "level": "advanced"
+    },
+    {
+       "id": "10",
+       "question": "Overconfidence is a characteristic of which of the following disorders?",
+       "options": [
+          {
+             "id": "1",
+             "option": "Acute stress disorder",
+             "isCorrect": false
+          },
+          {
+             "id": "2",
+             "option": "Avoidant personality disorder",
+             "isCorrect": true
+          },
+          {
+             "id": "3",
+             "option": "Generalised anxiety disorder",
+             "isCorrect": false
+          },
+          {
+             "id": "4",
+             "option": "Obsessive-compulsive disorder",
+             "isCorrect": false
+          }
+       ],
+       "right_answer": "2",
+       "level": "advanced"
+    }
+ ]
