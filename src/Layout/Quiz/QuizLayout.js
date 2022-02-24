@@ -14,10 +14,13 @@ const QuizLayout = () => {
     const { dataContext, dispatch } = contextData;
     const [index, setIndex] = useState(0);
     const [showQuestion, setShowQuestion] = useState(true);
+    const [selectedAnswer, setSelectedAnswer] = useState([]);
     const [isSelected, setIsSelected] = useState(false);
 
     useEffect(() => {
-        setShowQuestion(true)
+        setShowQuestion(true);
+        console.log('Quizes', dataContext.quizzes);
+        // console.log('SelectedAnswer', selectedAnswer);
     }, [index])
     useEffect(() => {
         fetch('quiz.json')
@@ -40,9 +43,11 @@ const QuizLayout = () => {
         currentIndex -= 1;
         setIndex(currentIndex)
     }
-    const handleOnChange = (e) => {
-        setIsSelected(true);
+    const handleOnChange = (option) => {
+
     }
+
+
     return (
         <Container sx={{
             display: 'flex',
@@ -64,7 +69,7 @@ const QuizLayout = () => {
                             >
                                 {
                                     dataContext.quizzes[index]?.options.map(element => (
-                                        <FormControlLabel onChange={handleOnChange} key={element.id} value={element.id} control={<Radio />} label={element.option} />
+                                        <FormControlLabel onChange={() => handleOnChange(element)} key={element.id} value={element.id} control={<Radio />} label={element.option} />
                                     ))
                                 }
 
