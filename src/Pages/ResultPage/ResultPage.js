@@ -38,7 +38,7 @@ const ResultPage = () => {
                                         <Typography
                                             sx={{
                                                 color: (element.isCorrect && 'green') || (finalAnswers[index].selectedAnswer.id === element.id && 'red'),
-                                                fontWeight: (finalAnswers[index].selectedAnswer.isCorrect && 'bold') || (finalAnswers[index].selectedAnswer.id === element.id && 'bold')
+                                                fontWeight: ((finalAnswers[index].selectedAnswer.isCorrect) && (finalAnswers[index].selectedAnswer.id === element.id) && 'bold') || (finalAnswers[index].selectedAnswer.id === element.id && 'bold')
 
                                             }}
                                         >
