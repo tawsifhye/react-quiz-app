@@ -12,16 +12,36 @@ import RadioGroup from '@mui/material/RadioGroup';
 const QuizLayout = () => {
     const contextData = useContext(DataContext);
     const { dataContext, dispatch } = contextData;
+    const { quizzes } = dataContext;
     const [index, setIndex] = useState(0);
     const [showQuestion, setShowQuestion] = useState(true);
     const [selectedAnswer, setSelectedAnswer] = useState([]);
     const [isSelected, setIsSelected] = useState(false);
+    let userSelecetedAnswers = [];
 
     useEffect(() => {
         setShowQuestion(true);
-        console.log('Quizes', dataContext.quizzes);
+        // console.log('Quizes', dataContext.quizzes);
         // console.log('SelectedAnswer', selectedAnswer);
     }, [index])
+
+    useEffect(() => {
+        selectedAnswer.forEach((element) => {
+            // console.log(element);
+            // userSelecetedAnswers.push(element);
+            if (element.questionId == userSelecetedAnswers[userSelecetedAnswers.length - 1]?.questionId) {
+                userSelecetedAnswers.pop();
+                userSelecetedAnswers.push(element);
+            }
+            else {
+
+                userSelecetedAnswers.push(element);
+            }
+            console.log('SelectedAnswer', selectedAnswer);
+            console.log('userSelecetedAnswers', userSelecetedAnswers);
+        })
+    }, [selectedAnswer]);
+
     useEffect(() => {
         fetch('quiz.json')
             .then(res => res.json())
@@ -44,7 +64,14 @@ const QuizLayout = () => {
         setIndex(currentIndex)
     }
     const handleOnChange = (option) => {
-
+        setIsSelected(true);
+        const answer = {
+            questionId: index + 1,
+            selectedAnswer: option,
+            level: quizzes[index].level
+        }
+        const newArr = [...selectedAnswer, answer];
+        setSelectedAnswer(newArr);
     }
 
 
@@ -61,14 +88,14 @@ const QuizLayout = () => {
                 showQuestion &&
 
                 <Card sx={{ minWidth: 450, p: 2, }}>
-                    <Typography variant='h6'>{dataContext.quizzes[index]?.id}. {dataContext.quizzes[index]?.question}</Typography>
+                    <Typography variant='h6'>{quizzes[index]?.id}. {quizzes[index]?.question}</Typography>
                     <Box>
 
                         <FormControl sx={{ m: 3 }} variant="standard">
                             <RadioGroup
                             >
                                 {
-                                    dataContext.quizzes[index]?.options.map(element => (
+                                    quizzes[index]?.options.map(element => (
                                         <FormControlLabel onChange={() => handleOnChange(element)} key={element.id} value={element.id} control={<Radio />} label={element.option} />
                                     ))
                                 }
@@ -81,10 +108,10 @@ const QuizLayout = () => {
             <Box>
                 <Button onClick={goBack} disabled={index === 0}>Prev</Button>
                 {
-                    index === dataContext.quizzes.length - 1 ?
+                    index === quizzes.length - 1 ?
                         <Button variant='contained'>Submit</Button>
                         :
-                        <Button onClick={goNext} disabled={index === dataContext.quizzes.length - 1 || !isSelected}>Next</Button>
+                        <Button onClick={goNext} disabled={index === quizzes.length - 1 || !isSelected}>Next</Button>
 
                 }
             </Box>
