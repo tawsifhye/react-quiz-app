@@ -7,40 +7,58 @@ import { DataContext } from '../../Context/DataProvider';
 import { Container, FormControlLabel, Radio, } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import RadioGroup from '@mui/material/RadioGroup';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const QuizLayout = () => {
+    const navigate = useNavigate();
     const contextData = useContext(DataContext);
     const { dataContext, dispatch } = contextData;
-    const { quizzes } = dataContext;
+    const { quizzes, finalAnswers } = dataContext;
     const [index, setIndex] = useState(0);
     const [showQuestion, setShowQuestion] = useState(true);
     const [selectedAnswer, setSelectedAnswer] = useState([]);
+    const [arr, setArr] = useState([]);
     const [isSelected, setIsSelected] = useState(false);
-    let userSelecetedAnswers = [];
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    let userSelectedAnswers = [];
 
     useEffect(() => {
         setShowQuestion(true);
-        // console.log('Quizes', dataContext.quizzes);
-        // console.log('SelectedAnswer', selectedAnswer);
-    }, [index])
-
-    useEffect(() => {
         selectedAnswer.forEach((element) => {
-            // console.log(element);
-            // userSelecetedAnswers.push(element);
-            if (element.questionId == userSelecetedAnswers[userSelecetedAnswers.length - 1]?.questionId) {
-                userSelecetedAnswers.pop();
-                userSelecetedAnswers.push(element);
+            if (element.questionId == userSelectedAnswers[userSelectedAnswers.length - 1]?.questionId) {
+                userSelectedAnswers.pop();
+                userSelectedAnswers.push(element);
             }
             else {
 
-                userSelecetedAnswers.push(element);
+                userSelectedAnswers.push(element);
             }
-            console.log('SelectedAnswer', selectedAnswer);
-            console.log('userSelecetedAnswers', userSelecetedAnswers);
+            dispatch({
+                type: 'SUBMIT_QUIZ',
+                payload: userSelectedAnswers
+            })
+            // console.log('SelectedAnswer', selectedAnswer);
+            // console.log('userSelecetedAnswers', userSelectedAnswers);
         })
-    }, [selectedAnswer]);
+        // console.log('Quizes', dataContext.quizzes);
+        // console.log('SelectedAnswer', selectedAnswer);
+    }, [index, isSubmitted, isSelected])
+
+    // useEffect(() => {
+    //     selectedAnswer.forEach((element) => {
+    //         if (element.questionId == userSelectedAnswers[userSelectedAnswers.length - 1]?.questionId) {
+    //             userSelectedAnswers.pop();
+    //             userSelectedAnswers.push(element);
+    //         }
+    //         else {
+
+    //             userSelectedAnswers.push(element);
+    //         }
+    //         // console.log('SelectedAnswer', selectedAnswer);
+    //         // console.log('userSelecetedAnswers', userSelectedAnswers);
+    //     })
+    // }, [selectedAnswer]);
 
     useEffect(() => {
         fetch('quiz.json')
@@ -65,8 +83,11 @@ const QuizLayout = () => {
     }
     const handleOnChange = (option) => {
         setIsSelected(true);
+
         const answer = {
-            questionId: index + 1,
+            questionId: quizzes[index].id,
+            question: quizzes[index].question,
+            options: quizzes[index].options,
             selectedAnswer: option,
             level: quizzes[index].level
         }
@@ -74,6 +95,29 @@ const QuizLayout = () => {
         setSelectedAnswer(newArr);
     }
 
+
+
+    // useEffect(() => {
+    //     dispatch({ type: 'SUBMIT_QUIZ', payload: userSelectedAnswers });
+    //     console.log('Final Answer', finalAnswers);
+
+    // }, [isSubmitted, index])
+
+    const submitQuiz = () => {
+        setIsSubmitted(true);
+        // dispatch({
+        //     type: 'SUBMIT_QUIZ',
+        //     payload: userSelectedAnswers
+        // })
+        // if (finalAnswers.length === quizzes.length) {
+
+        // }
+        navigate('/result');
+
+
+        // setArr(userSelectedAnswers);
+
+    }
 
     return (
         <Container sx={{
@@ -109,7 +153,9 @@ const QuizLayout = () => {
                 <Button onClick={goBack} disabled={index === 0}>Prev</Button>
                 {
                     index === quizzes.length - 1 ?
-                        <Button variant='contained'>Submit</Button>
+
+                        <Button onClick={submitQuiz} disabled={!isSelected} variant='contained'>Submit</Button>
+
                         :
                         <Button onClick={goNext} disabled={index === quizzes.length - 1 || !isSelected}>Next</Button>
 

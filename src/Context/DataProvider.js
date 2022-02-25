@@ -2,12 +2,16 @@ import { createContext, useReducer } from "react";
 
 
 const initialState = {
-    quizzes: []
+    quizzes: [],
+    finalAnswers: []
 }
 
 const reducer = (state, action) => {
     if (action.type === 'LOAD_QUIZ') {
         return { ...state, quizzes: action.payload }
+    }
+    if (action.type === 'SUBMIT_QUIZ') {
+        return { ...state, finalAnswers: action.payload }
     }
 }
 
